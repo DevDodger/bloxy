@@ -12,38 +12,7 @@
       rel="stylesheet"
       href="https://unpkg.com/tippy.js@6/animations/scale.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <style>
-        * {
-            text-align: center;
-            margin: 0px auto;
-        }
-
-        #welcome_txt {
-            font-size: 24px;
-        }
-
-        #login-link {
-            background-color: whitesmoke;
-            border-radius: 8px;
-            color: black;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-        }
-
-        #login-link:hover {
-            cursor: pointer;
-        }
-    </style>
+  
     <script>
       /*function check(e)
       {
@@ -60,34 +29,6 @@
   </head>
 
   <body oncontextmenu="return false;">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a id='login-link' href='https://discord.com/api/oauth2/authorize?client_id=980875637562703952&redirect_uri=https%3A%2F%2Fdevdodger.github.io%2Fbloxy%2F%23&response_type=code&scope=identify%20guilds'>Login with Discord</a><br><br>
-    <p id='welcome_txt'></p>
-
-    <script>
-        window.onload = function () {
-            if (location.href.indexOf("code") !== -1) { // Detect if you logged in or not
-                const code = location.href.substring(location.href.indexOf("code") + 5, location.href.length); 
-                const req = new XMLHttpRequest(); // XMLHttpRequest
-                req.open("POST", "http://https://devdodger.github.io/bloxy/:80/user"); // localhost:80
-                req.send(code); 
-                req.onload = () => { 
-                    if (req.status === 500) { 
-                        document.getElementById('welcome_txt').innerText = `There was an error with that. Please try logging in again.`;
-                    } else if (req.status === 200) { // Successful
-                        document.getElementById("welcome_txt").innerText = `Welcome, ${req.responseText}!`
-                    } else { // Other
-                        document.getElementById('welcome_txt').innerText = `An error occured. Please try logging in again.`;
-                    }
-
-                }
-            }
-        }
-    </script>
     <!-- Back To Top Start -->
     <a id="backtotop" data-tippy-content="Back To Top.">
       <i class="fa-solid fa-angle-up has-text-white fa-2xl mt-5"></i>
@@ -144,10 +85,29 @@
 
           <div class="navbar-item">
             <div class="buttons">
-              <a href="#" class="button is-blurple">
+                <a id='login-link' class="button is-blurple" href='https://discord.com/api/oauth2/authorize?client_id=980875637562703952&redirect_uri=https%3A%2F%2Fdevdodger.github.io%2Fbloxy%2F%23&response_type=code&scope=identify%20guilds'>Login with Discord</a><br><br>
+                <p id='welcome_txt'></p>            
+                <script>
+                  window.onload = function () {
+                      if (location.href.indexOf("code") !== -1) { // Detect if you logged in or not
+                          const code = location.href.substring(location.href.indexOf("code") + 5, location.href.length); 
+                          const req = new XMLHttpRequest(); // XMLHttpRequest
+                          req.open("POST", "http://https://devdodger.github.io/bloxy/:80/user"); // localhost:80
+                          req.send(code); 
+                          req.onload = () => { 
+                              if (req.status === 500) { 
+                                  document.getElementById('welcome_txt').innerText = `There was an error with that. Please try logging in again.`;
+                              } else if (req.status === 200) { // Successful
+                                  document.getElementById("welcome_txt").innerText = `Welcome, ${req.responseText}!`
+                              } else { // Other
+                                  document.getElementById('welcome_txt').innerText = `An error occured. Please try logging in again.`;
+                              }
+          
+                          }
+                      }
+                  }
+              </script>
                 <strong
-                  ><i class="fa-solid fa-right-to-bracket mr-2"></i>
-                  Login</strong
                   
                 >
               </a>
