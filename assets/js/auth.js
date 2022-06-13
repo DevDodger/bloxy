@@ -35,7 +35,7 @@ let _new = new URLSearchParams()
 _new.append('client_id', client_id);
 _new.append('client_secret', client_secret); 
 _new.append('grant_type', 'authorization_code'); 
-_new.append('redirect_uri', `http://localhost:${port}`); // redirect on login
+_new.append('redirect_uri', `http://https://devdodger.github.io/bloxy${port}`); // redirect on login
 _new.append('scope', 'identify'); // info
 _new.append('code', req.body)
 

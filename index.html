@@ -86,21 +86,24 @@
           <div class="navbar-item">
             <div class="buttons">
                 <a id='login-link' class="button is-blurple" href='https://discord.com/api/oauth2/authorize?client_id=980875637562703952&redirect_uri=https%3A%2F%2Fdevdodger.github.io%2Fbloxy%2F%23&response_type=code&scope=identify%20guilds'>Login with Discord</a><br><br>
-                <p id='welcome_txt'></p>            
+               <!--<p id='welcome_txt'></p>-->      
                 <script>
                   window.onload = function () {
                       if (location.href.indexOf("code") !== -1) { // Detect if you logged in or not
                           const code = location.href.substring(location.href.indexOf("code") + 5, location.href.length); 
                           const req = new XMLHttpRequest(); // XMLHttpRequest
-                          req.open("POST", "http://https://devdodger.github.io/bloxy/:80/user"); // localhost:80
+                          req.open("POST", "http://https://devdodger.github.io/bloxy/user"); // localhost:80
                           req.send(code); 
                           req.onload = () => { 
                               if (req.status === 500) { 
-                                  document.getElementById('welcome_txt').innerText = `There was an error with that. Please try logging in again.`;
+                                  document.getElementById('login-link').innerText = `There was an error with that. Please try logging in again.`;
+                               //   console.log('test 1 complete')
                               } else if (req.status === 200) { // Successful
-                                  document.getElementById("welcome_txt").innerText = `Welcome, ${req.responseText}!`
+                                  document.getElementById("login-link").innerText = `Welcome, ${req.responseText}!`
+                                  //console.log('test 2 complete')
                               } else { // Other
-                                  document.getElementById('welcome_txt').innerText = `An error occured. Please try logging in again.`;
+                                  document.getElementById('login-link').innerText = `An error occured. Please try logging in again.`;
+                                 // console.log('test 3 complete')
                               }
           
                           }
