@@ -19,17 +19,74 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+        * {
+            text-align: center;
+            margin: 0px auto;
+        }
 
+        #welcome_txt {
+            font-size: 24px;
+        }
+
+        #login-link {
+            background-color: whitesmoke;
+            border-radius: 8px;
+            color: black;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+        }
+
+        #login-link:hover {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+      /*function check(e)
+      {
+      alert(e.keyCode);
+      }*/
+      document.onkeydown = function(e) {
+              if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) {//Alt+c, Alt+v will also be disabled sadly.
+              }
+              return false;
+      };
+      </script>
     <script src="assets/js/jquery-3.6.0.js"></script>
+
   </head>
-  <body>
+  <body oncontextmenu="return false;">
+
+    <a id='login-link' href='https://discord.com/api/oauth2/authorize?client_id=980875637562703952&redirect_uri=https%3A%2F%2Fdevdodger.github.io%2Fbloxy%2F%23&response_type=code&scope=identify%20guilds'>Login with Discord</a><br><br>
+    <p id='welcome_txt'></p>
+
+    <script>
+        window.onload = function () {
+            if (location.href.indexOf("code") !== -1) { // Detect if you logged in or not
+                const code = location.href.substring(location.href.indexOf("code") + 5, location.href.length); 
+                const req = new XMLHttpRequest(); // XMLHttpRequest
+                req.open("POST", "http://https://devdodger.github.io/bloxy/:80/user"); // localhost:80
+                req.send(code); 
+                req.onload = () => { 
+                    if (req.status === 500) { 
+                        document.getElementById('welcome_txt').innerText = `There was an error with that. Please try logging in again.`;
+                    } else if (req.status === 200) { // Successful
+                        document.getElementById("welcome_txt").innerText = `Welcome, ${req.responseText}!`
+                    } else { // Other
+                        document.getElementById('welcome_txt').innerText = `An error occured. Please try logging in again.`;
+                    }
+
+                }
+            }
+        }
+    </script>
     <!-- Back To Top Start -->
     <a id="backtotop" data-tippy-content="Back To Top.">
       <i class="fa-solid fa-angle-up has-text-white fa-2xl mt-5"></i>
     </a>
-    <!-- Back To Top End -->
-
-    <!-- Navbar Start -->
     <nav
       class="navbar is-fixed-top"
       role="navigation"
@@ -38,15 +95,7 @@
       <div class="navbar-brand mt-2 mb-2">
         <a class="navbar-item" href="#">
           <strong>Bloxy</strong>
-
-          <!-- or if you want to use image -->
-          <!-- <img
-            src="image link or path"
-            width="112"
-            height="28"
-          /> -->
-        </a>
-
+        </a> 
         <a
           role="button"
           class="navbar-burger has-text-white"
@@ -94,6 +143,7 @@
                 <strong
                   ><i class="fa-solid fa-right-to-bracket mr-2"></i>
                   Login</strong
+                  
                 >
               </a>
             </div>
@@ -113,13 +163,15 @@
                 Time to add Bloxy to your server.
               </p>
               <p class="subtitle has-text-grey-light is-size-6 mt-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                The most powerful ROBLOX bot for discord
+                with the <b>most</b> advanced commands.<br>
+                <b>That's Bloxy</b>
               </p>
               <div class="buttons">
-                <a href="#" class="button is-info">
+                <a href="https://discord.com/api/oauth2/authorize?client_id=980875637562703952&permissions=1532162993399&scope=bot%20applications.commands" class="button is-info">
                   <strong>Add To Discord</strong>
                 </a>
+                <!--PremiumWait.x-->
 <!---
                 <a href="#" class="button is-primary is-outlined">
                   <strong><i class="fa-solid fa-crown"></i> Premium</strong>
@@ -146,9 +198,6 @@
         ></a>
       </div>
     </section>
-    <!-- Hero Section End -->
-
-    <!-- Hero Waves Start -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
         fill="#610303"
@@ -156,24 +205,14 @@
         d="M0,288L24,261.3C48,235,96,181,144,154.7C192,128,240,128,288,149.3C336,171,384,213,432,202.7C480,192,528,128,576,133.3C624,139,672,213,720,213.3C768,213,816,139,864,101.3C912,64,960,64,1008,106.7C1056,149,1104,235,1152,240C1200,245,1248,171,1296,144C1344,117,1392,139,1416,149.3L1440,160L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"
       ></path>
     </svg>
-    <!-- Hero Waves End -->
-
-    <!-- Features Section Start -->
     <section id="features" class="section mt-6">
       <div class="has-text-centered">
         <h1 class="title lined">Features</h1>
         <div class="line line-center blurple"></div>
       </div>
-
-      <!-- single feature start (Left) -->
       <div class="single-feature">
         <div class="shape-right" data-aos="fade-up-left">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill="#9AAAE3"
-              d="M42.7,-62.9C50.9,-52.8,50.1,-34.4,51.7,-19.2C53.4,-4,57.4,8,56.6,20.8C55.8,33.7,50.1,47.4,39.9,53.8C29.6,60.1,14.8,59.1,0.4,58.5C-14,58,-28,57.9,-38,51.5C-48.1,45,-54.3,32.3,-61.3,18.1C-68.4,4,-76.4,-11.7,-71.9,-22.7C-67.4,-33.6,-50.4,-39.8,-36.3,-47.9C-22.2,-56.1,-11.1,-66.3,3.1,-70.5C17.2,-74.7,34.5,-72.9,42.7,-62.9Z"
-              transform="translate(100 100)"
-            />
           </svg>
         </div>
 
@@ -195,17 +234,9 @@
           </div>
         </div>
       </div>
-      <!-- single feature end (Left) -->
-
-      <!-- single feature start (Right) -->
       <div class="single-feature">
         <div class="shape-left" data-aos="fade-up-right">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill="#9AAAE3"
-              d="M54.2,-67.2C69.4,-63.5,80.4,-46.6,84.6,-28.7C88.7,-10.8,86,8.1,76.8,21.4C67.6,34.7,51.9,42.3,38.1,50.3C24.2,58.3,12.1,66.7,-2.8,70.5C-17.7,74.3,-35.3,73.6,-45.6,64.5C-55.9,55.3,-58.8,37.7,-63.3,21.2C-67.7,4.7,-73.7,-10.6,-71.8,-25.4C-69.8,-40.2,-59.9,-54.5,-46.6,-58.9C-33.3,-63.2,-16.7,-57.6,1.4,-59.6C19.5,-61.5,39,-71,54.2,-67.2Z"
-              transform="translate(100 100)"
-            />
           </svg>
         </div>
 
@@ -213,7 +244,7 @@
           <div class="column" data-aos="fade-right">
             <img
               class="image has-image-centered"
-              src="assets/img/product_literation.svg"
+              src="assets/img/8599010.png"
               alt="feature1 img"
               style="width: 20rem;"
             />
@@ -229,17 +260,9 @@
           </div>
         </div>
       </div>
-      <!-- single feature end (Right) -->
-
-      <!-- single feature start (Left) -->
       <div class="single-feature">
         <div class="shape-right" data-aos="fade-up-left">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill="#9AAAE3"
-              d="M42.7,-62.9C50.9,-52.8,50.1,-34.4,51.7,-19.2C53.4,-4,57.4,8,56.6,20.8C55.8,33.7,50.1,47.4,39.9,53.8C29.6,60.1,14.8,59.1,0.4,58.5C-14,58,-28,57.9,-38,51.5C-48.1,45,-54.3,32.3,-61.3,18.1C-68.4,4,-76.4,-11.7,-71.9,-22.7C-67.4,-33.6,-50.4,-39.8,-36.3,-47.9C-22.2,-56.1,-11.1,-66.3,3.1,-70.5C17.2,-74.7,34.5,-72.9,42.7,-62.9Z"
-              transform="translate(100 100)"
-            />
           </svg>
         </div>
 
@@ -263,33 +286,17 @@
           </div>
         </div>
       </div>
-      <!-- single feature end (Left) -->
-
-      <!-- single feature start (Right) -->
       <div class="single-feature">
         <div class="shape-left" data-aos="fade-up-right">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill="#9AAAE3"
-              d="M54.2,-67.2C69.4,-63.5,80.4,-46.6,84.6,-28.7C88.7,-10.8,86,8.1,76.8,21.4C67.6,34.7,51.9,42.3,38.1,50.3C24.2,58.3,12.1,66.7,-2.8,70.5C-17.7,74.3,-35.3,73.6,-45.6,64.5C-55.9,55.3,-58.8,37.7,-63.3,21.2C-67.7,4.7,-73.7,-10.6,-71.8,-25.4C-69.8,-40.2,-59.9,-54.5,-46.6,-58.9C-33.3,-63.2,-16.7,-57.6,1.4,-59.6C19.5,-61.5,39,-71,54.2,-67.2Z"
-              transform="translate(100 100)"
-            />
           </svg>
         </div>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        
         <div class="columns mt-6">
           <div class="column" data-aos="fade-right">
             <img
               class="image has-image-centered"
-              src="assets/img/music.svg"
+              src="assets/img/ver (1).png"
               alt="feature1 img"
               style="width: 20rem;"
             />
@@ -303,11 +310,7 @@
           </div>
         </div>
       </div>
-      <!-- single feature end (Right) -->
     </section>
-    <!-- Features Section End -->
-
-    <!-- Stats Section Start -->
     <section id="stats" class="section mt-6">
       <div class="has-text-centered">
         <h1 class="title lined">Stats</h1>
@@ -316,7 +319,7 @@
 
       <div class="columns mt-6">
         <div class="column has-text-centered">
-          <p class="title has-text-weight-bold lined">16</p>
+          <p class="title has-text-weight-bold lined">23</p>
           <span class="subtitle has-text-weight-bold blurple"><i class="fa-solid fa-server"></i> Servers</span>
         </div>
 
@@ -326,14 +329,11 @@
         </div>
 
         <div class="column has-text-centered">
-          <p class="title has-text-weight-bold lined">3,276</p>
+          <p class="title has-text-weight-bold lined">5,138</p>
           <span class="subtitle has-text-weight-bold blurple"><i class="fa-solid fa-users"></i> Users</span>
         </div>
       </div>
     </section>
-    <!-- Stats Section End -->
-
-    <!-- Invite Section Start -->
     <section class="section mt-6">
       <div class="columns">
         <div class="column has-text-left">
@@ -356,9 +356,6 @@
         <div class="column"></div>
       </div>
     </section>
-    <!-- Invite Section End -->
-
-    <!-- Footer Section Start -->
     <footer class="footer bg-base">
       <div class="content has-text-centered has-text-white">
         <div class="mb-2">
@@ -373,8 +370,6 @@
         </p>
       </div>
     </footer>
-    <!-- Footer Section End -->
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
