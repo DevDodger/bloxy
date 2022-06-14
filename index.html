@@ -24,6 +24,10 @@
       href="https://unpkg.com/tippy.js@6/animations/scale.css"
     />
   
+   
+    <script src="assets/js/jquery-3.6.0.js"></script>
+
+
     <script>
       /*function check(e)
       {
@@ -35,10 +39,6 @@
               return false;
       };
       </script>
-    <script src="assets/js/jquery-3.6.0.js"></script>
-
-
-
 
   </head>
 
@@ -88,55 +88,37 @@
           </a>
 
           <a href="policy.html" class="navbar-item is-tab">
-            Private Policy
+            Privacy Policy
           </a>
           
           <a href="terms-of-service.html" class="navbar-item is-tab">
             TOS
+          
+          
+          
+          
           </a>
+
 
         </div>
 
-        <div class="navbar-end">
-          <a href="https://discord.gg/wtZmTVdkHh" class="navbar-item is-tab" target="_blank">
+       <!--<div class="navbar-end">--> 
+         <!--  <a href="https://discord.gg/y7C5sR6bXu" class="navbar-item is-tab" target="_blank">
             <i class="fa-brands fa-discord"></i>
           </a>
 
           <a href="#" class="navbar-item is-tab" target="_blank">
+
             <i class="fa-brands fa-github"></i>
-          </a>
+          </a>--> 
 
           <div class="navbar-item">
             <div class="buttons">
-              <br>  <a id='login-link'  href='https://discord.com/api/oauth2/authorize?client_id=980875637562703952&redirect_uri=https%3A%2F%2Fdevdodger.github.io%2Fbloxy%2F%23&response_type=code&scope=identify%20guilds'>Login with Discord</a><br><br>
-               <!--<p id='welcome_txt' | class="button is-blurple"></p>-->     
-               <p id='welcome_txt'></p> 
-                <script>
-                  window.onload = function () {
-                      if (location.href.indexOf("code") !== -1) { // Detect if you logged in or not
-                          const code = location.href.substring(location.href.indexOf("code") + 5, location.href.length); 
-                          const req = new XMLHttpRequest(); // XMLHttpRequest
-                          req.open("POST", "https://bloxy.digital:80")///user"); // localhost:80
-                          req.send(code); 
-                          req.onload = () => { 
-                              if (req.status === 500) { 
-                                  document.getElementById('welcome_txt').innerText = `There was an error with that. Please try logging in again.`;
-                               //   console.log('test 1 complete')
-                              } else if (req.status === 200) { // Successful
-                                  document.getElementById("welcome_txt").innerText = `Welcome, ${req.responseText}!`
-                                  //console.log('test 2 complete')
-                              } else { // Other
-                                  document.getElementById('welcome_txt').innerText = `An error occured. Please try logging in again.`;
-                                 // console.log('test 3 complete')
-                              }
-          
-                          }
-                      }
-                  }
-              </script>
+              <a href="#" class="button is-blurple">
                 <strong
-                  
-                >
+                  ><i class="fa-solid fa-right-to-bracket mr-2"></i>
+                  Login With Discord</strong
+                >               
               </a>
             </div>
           </div>
@@ -164,6 +146,7 @@
                   <strong>Add To Discord</strong>
                 </a>
                 <!--PremiumWait.x-->
+                
 <!---
                 <a href="#" class="button is-primary is-outlined">
                   <strong><i class="fa-solid fa-crown"></i> Premium</strong>
