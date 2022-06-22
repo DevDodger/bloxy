@@ -10,7 +10,12 @@
 
   gtag('config', 'G-282CJ9JSC9');
 </script>
-
+<script>
+  var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
+if (a.indexOf('html') > -1) { //Check of html String in URL.
+   url = url.substring(0, newURL.lastIndexOf("."));
+}
+</script>
 <!--GOOGLE-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -102,11 +107,11 @@
 
         </div>
 
-       <!--<div class="navbar-end">--> 
-         <!--  <a href="https://discord.gg/y7C5sR6bXu" class="navbar-item is-tab" target="_blank">
+       <div class="navbar-end">
+          <a href="https://discord.gg/y7C5sR6bXu" class="navbar-item is-tab" target="_blank">
             <i class="fa-brands fa-discord"></i>
           </a>
-
+<!---
           <a href="#" class="navbar-item is-tab" target="_blank">
 
             <i class="fa-brands fa-github"></i>
@@ -142,7 +147,7 @@
                 <b>That's Bloxy.</b>
               </p>
               <div class="buttons">
-                <a href="https://discord.com/api/oauth2/authorize?client_id=980875637562703952&permissions=1532162993399&scope=bot%20applications.commands" class="button is-info">
+                <a href="invite.html" class="button is-info">
                   <strong>Add To Discord</strong>
                 </a>
                 <!--PremiumWait.x-->

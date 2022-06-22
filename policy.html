@@ -2,6 +2,12 @@
     <!DOCTYPE html>
     <html>
       <head>
+        <script>
+          var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
+        if (a.indexOf('html') > -1) { //Check of html String in URL.
+           url = url.substring(0, newURL.lastIndexOf("."));
+        }
+        </script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Bloxy - Private Policy</title>
