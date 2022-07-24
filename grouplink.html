@@ -1,5 +1,5 @@
 <html lang="en">
-<head> brb ik
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,6 @@
 
 
 <script>
- const Express = require('express'); 
-const { URLSearchParams } = require('url'); 
-const axios = require('axios'); // Import Axios
-const path = require('path'); // Import path
-const bodyParser = require('body-parser'); 
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 
     var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
@@ -29,9 +23,17 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
     
 
 
+<!-- </script> -->
+
+<script>
+
+const fetch = require('node-fetch')
+const fun = require("funcaptcha")
+const noblox = require("noblox.js")
+
+
+
 </script>
-
-
 
 
 
@@ -41,13 +43,13 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
         <center>
         <h1>Verify</h1>
     </center>
-        <input type="text" name="name" placeholder="Roblox Username" required>
-        <input type="text" name="name" placeholder="Group ID" required>  i saw ur hair reveal on insta bb afk
-        <input type="hidden" name="_next" value="url">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="message" placeholder="123" readonly>
-        <button type="submit">Submit</button>
+        <input placeholder="Roblox Username" id="user" required>
+        <input placeholder="Provide the group ID of the group you want to verify." required> 
+        <input type="message" placeholder="123 Put this code in your ROBLOX about me" readonly> 
+       <button id="submitbtn" onclick="newURL()">Submit</button>
+        
         <br>
    </form>
+  
 </body>
 </html>

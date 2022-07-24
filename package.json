@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "funcaptcha": "^1.0.15",
+    "noblox.js": "^4.13.1"
+  }
+}
